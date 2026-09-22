@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business English ESL Course - Unit 5</title>
+    
+    <!-- External Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #0A1A56;
+            --secondary-color: #4D99AD;
+            --white-color: #FFFFFF;
+            --text-color: #333;
+            --light-gray: #f8fafc;
+            --correct-color: #10b981;
+            --incorrect-color: #ef4444;
+        }
+        html { scroll-behavior: smooth; }
+        * { font-family: 'Lato', sans-serif; }
+        body { background-color: var(--light-gray); }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            position: relative; overflow: hidden; background-attachment: fixed;
+        }
+        .hero-section::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') center/cover;
+            background-attachment: fixed; opacity: 0.15; z-index: 1;
+        }
+        .hero-content { position: relative; z-index: 2; }
+        
+        .section-card {
+            background: white; border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e2e8f0;
+        }
+
+        .menu-tile {
+            background: white; border-radius: 12px;
+            text-align: center; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden; padding: 15px 10px;
+        }
+        .menu-tile:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
+        .menu-icon { font-size: 3rem; color: var(--primary-color); margin-bottom: 15px; transition: color 0.3s; }
+        .menu-tile:hover .menu-icon { color: var(--secondary-color); }
+        .menu-tile h3 { color: var(--primary-color); padding: 10px; margin: 0; font-size: 1.1em; }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white; border: none; border-radius: 8px; padding: 10px 20px;
+            font-weight: 600; transition: all 0.3s ease; cursor: pointer;
+        }
+        .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
+        
+        .btn-secondary {
+            background: white; color: var(--primary-color); border: 2px solid var(--primary-color);
+            border-radius: 8px; padding: 8px 18px; font-weight: 600;
+            transition: all 0.3s ease; cursor: pointer;
+        }
+        .btn-secondary:hover { background: var(--primary-color); color: white; }
+        
+        .quiz-toggle {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;
+        }
+        .quiz-toggle:hover { transform: translateY(-1px); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
+        .quiz-toggle.active { border-radius: 8px 8px 0 0; }
+        
+        .quiz-content {
+            background: white; border-radius: 0 0 8px 8px; border: 1px solid #e2e8f0; border-top: none;
+            max-height: 0; opacity: 0; overflow: hidden; transition: all 0.5s ease;
+        }
+        .quiz-content.active { max-height: 2000px; opacity: 1; padding: 1.5rem; }
+
+        .feedback {
+            font-weight: 600; padding: 8px 12px; border-radius: 6px; margin-top: 8px;
+            display: inline-flex; align-items: center; gap: 8px;
+        }
+        .feedback.correct { color: var(--correct-color); }
+        .feedback.incorrect { color: var(--incorrect-color); }
+        
+        .email-sample { background: #f8fafc; border-left: 4px solid var(--secondary-color); border-radius: 8px; }
+        .objectives-box { background: #f0f9ff; border-left: 4px solid #3b82f6; border-radius: 8px; }
+        
+        .table-modern { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .table-modern th { background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%); color: var(--primary-color); font-weight: 700; }
+        .table-modern tbody tr:nth-child(even) { background: #f8fafc; }
+        
+        .input-modern { border: 2px solid #e2e8f0; border-radius: 8px; padding: 10px 14px; transition: border-color 0.3s ease; }
+        .input-modern:focus { outline: none; border-color: var(--secondary-color); }
+
+        #floating-progress-panel { position: fixed; bottom: 20px; left: 20px; z-index: 1000; display: none; background-color: var(--primary-color); color: var(--white-color); padding: 10px 15px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); width: 220px; }
+        .page-nav-buttons { position: fixed; bottom: 20px; right: 20px; z-index: 1000; display: none; flex-direction: column; gap: 10px; }
+        .page-nav-buttons button { width: 50px; height: 50px; border-radius: 50%; background-color: var(--primary-color); color: var(--white-color); border: none; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; }
+        .page-nav-buttons button:hover { background-color: var(--secondary-color); transform: scale(1.1); }
+        
+        #floating-sound-bank {
+            position: fixed; bottom: 80px; right: 20px; z-index: 1000;
+            display: none;
+            background-color: transparent;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+            border-radius: 8px;
+        }
+        #floating-sound-bank iframe { border-radius: 8px; }
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in-up { animation: fadeInUp 0.5s ease-out forwards; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <div class="hero-section text-white py-16">
+        <div class="hero-content text-center px-4">
+            <img src="https://ucn.edu.co/wp-content/uploads/2025/03/ucn-logosimbolo.svg" alt="UCN Logo" class="w-56 mx-auto mb-6 filter brightness-0 invert" style="width: 225px;">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Business English: Unit 5</h1>
+            <p class="text-xl mb-6 opacity-90">Workplace Notices and Instructions</p>
+            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm mt-6 opacity-90">
+                <span class="flex items-center"><i class="fas fa-clock mr-2"></i>Duration: ~5.5 hours</span>
+                <span class="flex items-center"><i class="fas fa-layer-group mr-2"></i>Beginner Level</span>
+                <span class="flex items-center"><i class="fas fa-bookmark mr-2"></i>Unit 5 of 6</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container max-w-6xl mx-auto px-4 py-8">
+        <main>
+            <div id="main-menu-content">
+                <div class="objectives-box p-6 mb-8 animate-fade-in-up">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center"><i class="fas fa-bullseye mr-3 text-blue-600"></i>Learning Objectives</h2>
+                    <ul class="space-y-2">
+                        <li class="flex items-start space-x-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i><span>Understand common workplace notices and signs</span></li>
+                        <li class="flex items-start space-x-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i><span>Follow short instructions and procedures</span></li>
+                        <li class="flex items-start space-x-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i><span>Use imperatives for giving instructions</span></li>
+                        <li class="flex items-start space-x-3"><i class="fas fa-check-circle text-blue-600 mt-1"></i><span>Write a 3-step instruction for an office tool</span></li>
+                    </ul>
+                </div>
+                <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-in-up">
+                    <div class="menu-tile p-6" onclick="showSection('vocab-section')">
+                        <i class="fas fa-spell-check menu-icon text-4xl mb-4"></i>
+                        <h3 class="font-bold text-lg">1. Vocabulary</h3>
+                    </div>
+                    <div class="menu-tile p-6" onclick="showSection('reading-section')">
+                        <i class="fas fa-book-open-reader menu-icon text-4xl mb-4"></i>
+                        <h3 class="font-bold text-lg">2. Reading</h3>
+                    </div>
+                    <div class="menu-tile p-6" onclick="showSection('grammar-section')">
+                        <i class="fas fa-pen-ruler menu-icon text-4xl mb-4"></i>
+                        <h3 class="font-bold text-lg">3. Grammar</h3>
+                    </div>
+                    <div class="menu-tile p-6" onclick="showSection('practical-section')">
+                        <i class="fas fa-keyboard menu-icon text-4xl mb-4"></i>
+                        <h3 class="font-bold text-lg">4. Practical Task</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vocabulary Section -->
+            <section id="vocab-section" class="content-section section-card p-6 md:p-8 hidden">
+                <button class="btn-primary mb-6" onclick="showMenu()"><i class="fas fa-arrow-left mr-2"></i>Back to Menu</button>
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">1. Vocabulary Presentation</h2>
+                <img src="https://images.pexels.com/photos/7848733/pexels-photo-7848733.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Various signs on an office wall" class="w-full h-64 object-cover rounded-lg shadow-md mb-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">Notice and Sign Words</h3>
+                        <ul class="list-disc list-inside"><li>Notice = important information for everyone</li><li>Sign = written information that you can see</li><li>Warning = tells you about danger</li><li>Instructions = steps to follow</li><li>Rules = what you must and must not do</li><li>Emergency = dangerous situation that needs quick action</li></ul>
+                        <h3 class="font-bold text-lg mt-4 mb-2">Action Words (Imperatives)</h3>
+                        <ul class="list-disc list-inside"><li>Enter = go inside</li><li>Exit = go outside/leave</li><li>Push = press with force</li><li>Pull = move toward you</li><li>Turn = move in a circle</li><li>Press = push gently</li><li>Wait = stay and do nothing</li><li>Stop = do not continue</li><li>Start = begin</li><li>Close = shut</li><li>Open = not closed</li></ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">Office Equipment</h3>
+                        <ul class="list-disc list-inside"><li>Printer = machine that prints papers</li><li>Copier = machine that copies documents</li><li>Scanner = machine that copies documents to computer</li><li>Fax machine = sends documents by telephone</li><li>Coffee machine = makes coffee</li><li>Microwave = heats food</li><li>Elevator = moves people between floors</li><li>Fire extinguisher = puts out fires</li></ul>
+                        <h3 class="font-bold text-lg mt-4 mb-2">Safety Words</h3>
+                        <ul class="list-disc list-inside"><li>Danger = not safe</li><li>Caution = be careful</li><li>Emergency = serious problem</li><li>Fire = burning</li><li>Smoke = gray clouds from fire</li><li>Exit = way out</li><li>First aid = help for injured people</li><li>Security = keeping safe</li></ul>
+                    </div>
+                </div>
+                <div class="mt-6"><button onclick="toggleSoundBank()" class="btn-primary"><i class="fas fa-volume-high mr-2"></i>Toggle Audio Bank</button></div>
+                <div class="quiz-toggle mt-6" onclick="toggleQuiz(this, 'vocab-quiz-content')"><h3 class="text-xl font-bold"><i class="fas fa-brain mr-3"></i>Vocabulary Exercises</h3><i class="fas fa-chevron-down"></i></div>
+                <div class="quiz-content" id="vocab-quiz-content"><div id="quiz-vocab" class="space-y-4"></div><div class="mt-6"><button onclick="checkQuiz('vocab')" class="btn-primary">Check Answers</button><button onclick="generateQuiz('vocab')" class="btn-secondary ml-2">Try Again</button></div></div>
+            </section>
+            
+            <!-- Reading Section -->
+            <section id="reading-section" class="content-section section-card p-6 md:p-8 hidden">
+                <button class="btn-primary mb-6" onclick="showMenu()"><i class="fas fa-arrow-left mr-2"></i>Back to Menu</button>
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">2. Reading: Workplace Notices</h2>
+                <img src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="People looking at a notice board" class="w-full h-64 object-cover rounded-lg shadow-md mb-8">
+                <div class="grid md:grid-cols-2 gap-6 mt-8">
+                    <div class="notice-card">
+                        <div class="notice-header bg-blue-100 text-blue-800 font-bold"><i class="fas fa-print mr-2"></i>Notice 1: Printer Instructions</div>
+                        <div class="notice-body"><ol><li>Press the power button and wait for the green light.</li><li>Place your document face-down on the glass.</li><li>Select the number of copies you need.</li><li>Press the start button and collect your copies.</li></ol><p class="text-xs mt-2 text-gray-500">Problems? Call ext. 205.</p></div>
+                    </div>
+                    <div class="notice-card">
+                        <div class="notice-header bg-yellow-100 text-yellow-800 font-bold"><i class="fas fa-mug-hot mr-2"></i>Notice 2: Coffee Machine</div>
+                        <div class="notice-body"><ol><li>Put your cup under the coffee spout.</li><li>Choose your drink type (coffee, tea, etc.).</li><li>Press the selected button and wait 30 seconds.</li></ol><p class="text-xs mt-2 text-gray-500">Please clean up after use. Thank you!</p></div>
+                    </div>
+                    <div class="notice-card">
+                        <div class="notice-header bg-red-100 text-red-800 font-bold"><i class="fas fa-fire-extinguisher mr-2"></i>Notice 3: Fire Emergency Procedures</div>
+                        <div class="notice-body"><ul><li>• Do not use elevators.</li><li>• Exit the building using the stairs.</li><li>• Meet at the assembly point in the parking lot.</li><li>• Do not return until security says it is safe.</li><li>• Call 911 from a safe location.</li></ul></div>
+                    </div>
+                     <div class="notice-card">
+                        <div class="notice-header bg-gray-100 text-gray-800 font-bold"><i class="fas fa-clipboard-list mr-2"></i>Notice 4: General Office Rules</div>
+                        <div class="notice-body"><ul><li>• Please turn off all computers before leaving.</li><li>• Do not eat at your desk.</li><li>• Keep noise levels low during work hours.</li><li>• Park only in designated employee spaces.</li><li>• Report security problems to reception.</li></ul></div>
+                    </div>
+                </div>
+                <div class="quiz-toggle mt-6" onclick="toggleQuiz(this, 'reading-quiz-content')"><h3 class="text-xl font-bold"><i class="fas fa-question-circle mr-3"></i>Reading Comprehension</h3><i class="fas fa-chevron-down"></i></div>
+                <div class="quiz-content" id="reading-quiz-content"><div id="quiz-reading" class="space-y-4"></div><div class="mt-6"><button onclick="checkQuiz('reading')" class="btn-primary">Check Answers</button><button onclick="generateQuiz('reading')" class="btn-secondary ml-2">Try Again</button></div></div>
+            </section>
+
+            <!-- Grammar Section -->
+            <section id="grammar-section" class="content-section section-card p-6 md:p-8 hidden">
+                 <button class="btn-primary mb-6" onclick="showMenu()"><i class="fas fa-arrow-left mr-2"></i>Back to Menu</button>
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">3. Grammar Presentation</h2>
+                <img src="https://images.pexels.com/photos/7102/notes-macbook-study-conference.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="A person taking notes" class="w-full h-64 object-cover rounded-lg shadow-md mb-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Grammar for Instructions and Notices</h3>
+                <div class="space-y-6 bg-gray-50 p-6 rounded-lg border">
+                    <div><h4 class="text-lg font-bold mb-2">1. Imperatives (Commands)</h4><p>• <strong class="text-green-600">Positive:</strong> Press the button. / Wait here.</p><p>• <strong class="text-red-600">Negative:</strong> Do not enter. / Don't touch.</p></div>
+                    <div><h4 class="text-lg font-bold mb-2">2. Sequencing Words</h4><p>• <strong class="text-blue-600">First</strong>, press the button. <strong class="text-blue-600">Then</strong>, wait. <strong class="text-blue-600">Finally</strong>, take your cup.</p></div>
+                    <div><h4 class="text-lg font-bold mb-2">3. Polite Instructions</h4><p>• <strong class="text-purple-600">Please</strong> press the button.</p><p>• <strong class="text-purple-600">Please</strong> do not smoke.</p></div>
+                    <div><h4 class="text-lg font-bold mb-2">4. Conditional Instructions</h4><p>• <strong class="text-yellow-600">If</strong> there is a fire, use the stairs.</p><p>• <strong class="text-yellow-600">When</strong> the light is green, start.</p></div>
+                </div>
+                <div class="quiz-toggle mt-8" onclick="toggleQuiz(this, 'grammar-quiz-content')"><h3 class="text-xl font-bold"><i class="fas fa-edit mr-3"></i>Grammar Exercises</h3><i class="fas fa-chevron-down"></i></div>
+                <div class="quiz-content" id="grammar-quiz-content"><div id="quiz-grammar" class="space-y-4"></div><div class="mt-6"><button onclick="checkQuiz('grammar')" class="btn-primary">Check Answers</button><button onclick="generateQuiz('grammar')" class="btn-secondary ml-2">Try Again</button></div></div>
+            </section>
+            
+            <section id="practical-section" class="content-section section-card p-6 md:p-8 hidden">
+                <button class="btn-primary mb-6" onclick="showMenu()"><i class="fas fa-arrow-left mr-2"></i>Back to Menu</button>
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">4. Practical Task: Writing</h2>
+                <img src="https://images.pexels.com/photos/4050315/pexels-photo-4050315.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Hands typing on a keyboard, writing instructions" class="w-full h-64 object-cover rounded-lg shadow-md mb-8">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">Writing Task: Create 3-Step Instructions for an Office Tool</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gray-50 p-6 rounded-lg border">
+                        <h4 class="font-bold mb-2">Step 1 & 2: Choose & Plan</h4>
+                        <p class="text-sm text-gray-600 mb-4">Select a tool and plan the key steps and info.</p>
+                        <div class="space-y-4">
+                            <div><label class="block font-semibold text-gray-700">Office Tool:</label><select class="input-modern w-full"><option>Photocopier</option><option>Scanner</option><option>Microwave</option><option>Shredder</option></select></div>
+                            <div><label class="block font-semibold text-gray-700">Important safety info:</label><input type="text" placeholder="e.g., Caution: Hot surface" class="input-modern w-full"></div>
+                            <div><label class="block font-semibold text-gray-700">Who to call for problems:</label><input type="text" placeholder="e.g., IT department, ext. 123" class="input-modern w-full"></div>
+                        </div>
+                    </div>
+                    <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                        <h4 class="font-bold mb-2">Step 3: Write Your 3-Step Instructions</h4>
+                        <p class="text-sm text-gray-600 mb-4">Use the structure below to write your instructions.</p>
+                        <textarea rows="10" class="input-modern w-full" placeholder="Title: HOW TO USE THE ...
+Step 1: (First action)
+Step 2: (Main action)
+Step 3: (Final action)"></textarea>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- FLOATING UI ELEMENTS -->
+    <div id="floating-progress-panel"><div class="progress-label" id="progress-label">Section Progress</div><div class="progress-bar-container"><div class="progress-bar-fill" id="progress-bar"></div></div></div>
+    <div id="floating-sound-bank"><iframe src="https://archive.org/embed/be-1-u-5-vocab" width="320" height="60" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe></div>
+    <div class="page-nav-buttons" id="page-nav"><button onclick="goToTop()" title="Go to Top"><i class="fas fa-arrow-up"></i></button><button onclick="goToBottom()" title="Go to Bottom"><i class="fas fa-arrow-down"></i></button></div>
+
+    <script>
+        const quizPool = {
+            vocab: [ { type: 'match', q: 'Match: Notice', a: 'Important information for everyone', o: ['Machine that prints papers', 'Important information for everyone', 'Steps to follow']}, { type: 'match', q: 'Match: Emergency', a: 'Dangerous situation', o: ['Go inside', 'Steps to follow', 'Dangerous situation']}, { type: 'match', q: 'Match: Printer', a: 'Machine that prints papers', o: ['Machine that prints papers', 'Puts out fires', 'Sends documents']}, { type: 'fill', q: '_______ the button to start the machine.', a: 'Press'}, { type: 'fill', q: '_______ the door to open it.', a: 'Pull'}, { type: 'fill', q: '_______ the handle to the right.', a: 'Turn'}, { type: 'choice', q: 'In case of (fire/coffee), use the stairs.', a: 'fire', o: ['fire', 'coffee']}, { type: 'choice', q: 'The (danger/paper) sign means "be very careful."', a: 'danger', o: ['danger', 'paper']}, { type: 'choice', q: 'The (exit/enter) sign shows the way out.', a: 'exit', o: ['exit', 'enter']}, { type: 'fill', q: 'Enter this room. → _______ enter this room.', a: 'Do not'}, { type: 'fill', q: 'Touch the equipment. → _______ touch the equipment.', a: 'Do not'} ],
+            reading: [ { type: 'tf', q: 'You should put documents face-up on the printer glass.', a: 'F'}, { type: 'tf', q: 'The coffee machine takes 30 seconds to prepare drinks.', a: 'T'}, { type: 'tf', q: 'You can use elevators during a fire emergency.', a: 'F'}, { type: 'tf', q: 'You should turn off computers before leaving.', a: 'T'}, { type: 'tf', q: 'You can eat anywhere in the office.', a: 'F'}, { type: 'tf', q: 'Call extension 205 for printer problems.', a: 'T'}, { type: 'choice', q: 'What should you do if the printer has problems?', a: 'Call extension 205', o:['Clean it', 'Call extension 205', 'Turn it off']}, { type: 'choice', q: 'Where is the assembly point during fire emergencies?', a: 'In the parking lot', o:['In the building', 'At reception', 'In the parking lot']}, { type: 'choice', q: 'What is the first step to use the coffee machine?', a: 'Put your cup under the spout', o:['Press the button', 'Choose your drink', 'Put your cup under the spout']}, { type: 'match', q: 'Instruction: Place document face-down', a: 'b', o: ['a) Coffee machine', 'b) Printer', 'c) Emergency', 'd) Computer']}, { type: 'match', q: 'Instruction: Use stairs, not elevator', a: 'c', o: ['a) Coffee machine', 'b) Printer', 'c) Emergency', 'd) Computer']} ],
+            grammar: [ { type: 'fill', q: 'You should press the button. → _______ the button.', a: 'Press'}, { type: 'fill', q: 'You must not smoke here. → _______ smoke here.', a: 'Do not'}, { type: 'fill', q: 'You need to wait. → _______ here.', a: 'Wait'}, { type: 'fill', q: 'Turn off your phone. → _______ turn off your phone.', a: 'Please'}, { type: 'fill', q: '_______ press the red button.', a: 'Don\'t'}, { type: 'fill', q: '_______ use the elevator during emergencies.', a: 'Don\'t'}, { type: 'fill', q: '_______ follow the safety instructions.', a: 'Do'}, { type: 'choice', q: 'Complete: _____ case of fire, use the stairs.', a: 'In', o:['In', 'If', 'When', 'Before']}, { type: 'choice', q: 'Complete: _____ the light is red, do not enter.', a: 'When', o:['In', 'If', 'When', 'Before']}, { type: 'choice', q: 'Complete: _____ you need help, call reception.', a: 'If', o:['In', 'If', 'When', 'Before']} ]
+        };
+        const mainMenuContent = document.getElementById('main-menu-content');
+        const allSections = document.querySelectorAll('.content-section');
+        const pageNav = document.getElementById('page-nav');
+        const progressPanel = document.getElementById('floating-progress-panel');
+        const soundBankPanel = document.getElementById('floating-sound-bank');
+        let currentSection = null;
+
+        document.addEventListener('DOMContentLoaded', () => { generateQuiz('vocab'); generateQuiz('reading'); generateQuiz('grammar'); });
+        
+        function resetIframes(sectionEl) {
+            if (sectionEl) {
+                sectionEl.querySelectorAll('iframe').forEach(iframe => { const src = iframe.src; iframe.src = null; iframe.src = src; });
+            }
+            const soundBankIframe = soundBankPanel.querySelector('iframe');
+            if (soundBankIframe) { const src = soundBankIframe.src; soundBankIframe.src = null; soundBankIframe.src = src; }
+        }
+        
+        function showMenu() {
+            if (currentSection) resetIframes(currentSection);
+            currentSection = null;
+            mainMenuContent.style.display = 'block';
+            allSections.forEach(s => { s.style.display = 'none'; });
+            window.removeEventListener('scroll', updateProgressBar);
+            progressPanel.style.display = 'none';
+            soundBankPanel.style.display = 'none';
+        }
+
+        function showSection(id) {
+            if (currentSection) resetIframes(currentSection);
+            mainMenuContent.style.display = 'none';
+            allSections.forEach(s => { s.style.display = 'none'; });
+            currentSection = document.getElementById(id);
+            if(currentSection) {
+                currentSection.style.display = 'block';
+                window.scrollTo(0,0);
+                window.addEventListener('scroll', updateProgressBar);
+                progressPanel.style.display = 'block';
+                soundBankPanel.style.display = 'none';
+                updateProgressBar();
+            }
+        }
+
+        function toggleSoundBank() { soundBankPanel.style.display = soundBankPanel.style.display === 'block' ? 'none' : 'block'; }
+        function toggleQuiz(button, contentId) { button.classList.toggle('active'); document.getElementById(contentId).classList.toggle('active'); setTimeout(updateProgressBar, 500); }
+        function goToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+        function goToBottom() { window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }); }
+        
+        function updateProgressBar() {
+            pageNav.style.display = (window.scrollY > 200) ? "flex" : "none";
+            if (!currentSection) { progressPanel.style.display = 'none'; return; }
+            progressPanel.style.display = 'block';
+            const progressBar = document.getElementById('progress-bar');
+            const progressLabel = document.getElementById('progress-label');
+            const sectionTop = currentSection.offsetTop;
+            const sectionHeight = currentSection.scrollHeight;
+            const viewportHeight = window.innerHeight;
+            const scrollPos = window.scrollY;
+            let percentage = 0;
+            if (scrollPos >= sectionTop - viewportHeight) {
+                const distance = scrollPos + viewportHeight - sectionTop;
+                let total = sectionHeight;
+                if (total < viewportHeight) { total = viewportHeight; }
+                percentage = (distance / total) * 100;
+            }
+            percentage = Math.max(0, Math.min(percentage, 100));
+            progressBar.style.width = percentage + '%';
+            progressLabel.textContent = `Section ${Math.round(percentage)}% Explored`;
+        }
+        window.addEventListener('scroll', updateProgressBar);
+
+        function getShuffledQuestions(type, num) { return quizPool[type].sort(() => 0.5 - Math.random()).slice(0, num); }
+        
+        function generateQuiz(type) {
+            const container = document.getElementById(`quiz-${type}`); if (!container) return;
+            const questions = getShuffledQuestions(type, 5); let html = '';
+            questions.forEach((q, i) => {
+                let qHtml = `<div class="quiz-question bg-gray-50 p-4 rounded-lg border" data-a="${q.a}"><p class="font-semibold text-gray-800 mb-3"><span class="inline-flex items-center justify-center w-6 h-6 bg-blue-100 text-blue-800 rounded-full text-sm font-bold mr-3">${i + 1}</span>`;
+                if (q.type === 'fill') qHtml += `${q.q.replace(/_+/g, '<input type="text" class="input-modern inline-block w-40 mx-1">')}</p>`;
+                else if (q.type === 'order') qHtml += `Put the words in order: <em class="text-blue-600">${q.q}</em></p><input type="text" class="input-modern w-full mt-2" placeholder="Write the correct sentence...">`;
+                else { qHtml += `${q.q}</p><div class="options mt-3 space-y-2">`; const opts = q.type === 'tf' ? ['T', 'F'] : q.o; opts.forEach(o => { const lbl = q.type === 'tf' ? (o === 'T' ? 'True' : 'False') : o; qHtml += `<label class="flex items-center p-3 bg-white rounded-lg border hover:bg-gray-50 cursor-pointer"><input type="radio" name="q${type}${i}" value="${o}" class="mr-3 text-blue-600 focus:ring-blue-500"><span>${lbl}</span></label>`; }); qHtml += `</div>`; }
+                qHtml += '<div class="feedback mt-3"></div></div>'; html += qHtml;
+            });
+            container.innerHTML = html;
+        }
+        function checkQuiz(type) {
+            document.querySelectorAll(`#quiz-${type} .quiz-question`).forEach(q => {
+                const ans = q.dataset.a; const fb = q.querySelector('.feedback'); let userAns;
+                const input = q.querySelector('.quiz-input'); const selected = q.querySelector('input:checked');
+                if (input) userAns = input.value.trim().replace(/\.$/, ""); else if (selected) userAns = selected.value;
+                if (userAns === undefined || userAns === "") { fb.innerHTML = `<span class="feedback incorrect">⚠️ Please provide an answer.</span>`; return; }
+                if (userAns.toLowerCase() === ans.toLowerCase().replace(/\.$/, "")) { fb.innerHTML = `<span class="feedback correct">✅️ Correct!</span>`; } 
+                else { fb.innerHTML = `<span class="feedback incorrect">❌ Incorrect. The correct answer is: <strong>${ans}</strong></span>`; }
+            });
+        }
+    </script>
+</body>
+</html>
