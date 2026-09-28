@@ -4,119 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Business English ESL Course - Unit 5</title>
-    
-    <!-- External Libraries -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-    
     <style>
-        :root {
-            --primary-color: #0A1A56;
-            --secondary-color: #4D99AD;
-            --white-color: #FFFFFF;
-            --text-color: #333;
-            --light-gray: #f8fafc;
-            --correct-color: #10b981;
-            --incorrect-color: #ef4444;
-        }
-        html { scroll-behavior: smooth; }
-        * { font-family: 'Lato', sans-serif; }
-        body { background-color: var(--light-gray); }
-        
-        .hero-section {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            position: relative; overflow: hidden; background-attachment: fixed;
-        }
-        .hero-section::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') center/cover;
-            background-attachment: fixed; opacity: 0.15; z-index: 1;
-        }
+        :root { --primary-color: #0A1A56; --secondary-color: #4D99AD; --white-color: #FFFFFF; --light-gray: #f8fafc; --correct-color: #10b981; --incorrect-color: #ef4444; }
+        html { scroll-behavior: smooth; } * { font-family: 'Lato', sans-serif; } body { background-color: var(--light-gray); }
+        .hero-section { background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); position: relative; overflow: hidden; background-attachment: fixed; }
+        .hero-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') center/cover; background-attachment: fixed; opacity: 0.15; z-index: 1; }
         .hero-content { position: relative; z-index: 2; }
-        
-        .section-card {
-            background: white; border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            border: 1px solid #e2e8f0;
-        }
-
-        .menu-tile {
-            background: white; border-radius: 12px;
-            text-align: center; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;
-            overflow: hidden; padding: 15px 10px;
-        }
+        .section-card { background: white; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; }
+        .menu-tile { background: white; border-radius: 12px; text-align: center; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; overflow: hidden; padding: 15px 10px; }
         .menu-tile:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
         .menu-icon { font-size: 3rem; color: var(--primary-color); margin-bottom: 15px; transition: color 0.3s; }
         .menu-tile:hover .menu-icon { color: var(--secondary-color); }
         .menu-tile h3 { color: var(--primary-color); padding: 10px; margin: 0; font-size: 1.1em; }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white; border: none; border-radius: 8px; padding: 10px 20px;
-            font-weight: 600; transition: all 0.3s ease; cursor: pointer;
-        }
-        .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
-        
-        .btn-secondary {
-            background: white; color: var(--primary-color); border: 2px solid var(--primary-color);
-            border-radius: 8px; padding: 8px 18px; font-weight: 600;
-            transition: all 0.3s ease; cursor: pointer;
-        }
+        .btn-primary { background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white; border: none; border-radius: 8px; padding: 10px 20px; font-weight: 600; transition: all 0.3s ease; cursor: pointer; }
+        .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .btn-secondary { background: white; color: var(--primary-color); border: 2px solid var(--primary-color); border-radius: 8px; padding: 8px 18px; font-weight: 600; transition: all 0.3s ease; cursor: pointer; }
         .btn-secondary:hover { background: var(--primary-color); color: white; }
-        
-        .quiz-toggle {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;
-        }
-        .quiz-toggle:hover { transform: translateY(-1px); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
+        .quiz-toggle { background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .quiz-toggle:hover { transform: translateY(-1px); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
         .quiz-toggle.active { border-radius: 8px 8px 0 0; }
-        
-        .quiz-content {
-            background: white; border-radius: 0 0 8px 8px; border: 1px solid #e2e8f0; border-top: none;
-            max-height: 0; opacity: 0; overflow: hidden; transition: all 0.5s ease;
-        }
-        .quiz-content.active { max-height: 2000px; opacity: 1; padding: 1.5rem; }
-
-        .feedback {
-            font-weight: 600; padding: 8px 12px; border-radius: 6px; margin-top: 8px;
-            display: inline-flex; align-items: center; gap: 8px;
-        }
-        .feedback.correct { color: var(--correct-color); }
-        .feedback.incorrect { color: var(--incorrect-color); }
-        
-        .email-sample { background: #f8fafc; border-left: 4px solid var(--secondary-color); border-radius: 8px; }
+        .quiz-content { background: white; border-radius: 0 0 8px 8px; border: 1px solid #e2e8f0; border-top: none; max-height: 0; opacity: 0; overflow: hidden; transition: all 0.5s ease; }
+        .quiz-content.active { max-height: 3000px; opacity: 1; padding: 1.5rem; }
+        .feedback { font-weight: 600; padding: 8px 12px; border-radius: 6px; margin-top: 8px; display: inline-flex; align-items: center; gap: 8px; }
+        .feedback.correct { color: var(--correct-color); } .feedback.incorrect { color: var(--incorrect-color); }
         .objectives-box { background: #f0f9ff; border-left: 4px solid #3b82f6; border-radius: 8px; }
-        
-        .table-modern { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
-        .table-modern th { background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%); color: var(--primary-color); font-weight: 700; }
-        .table-modern tbody tr:nth-child(even) { background: #f8fafc; }
-        
         .input-modern { border: 2px solid #e2e8f0; border-radius: 8px; padding: 10px 14px; transition: border-color 0.3s ease; }
         .input-modern:focus { outline: none; border-color: var(--secondary-color); }
-
+        .notice-card { background: white; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.07); }
+        .notice-header { padding: 10px 16px; font-size: 0.95rem; }
+        .notice-body { padding: 12px 16px; font-size: 0.9rem; }
+        .notice-body ol, .notice-body ul { padding-left: 4px; }
+        .notice-body li { margin-bottom: 4px; }
         #floating-progress-panel { position: fixed; bottom: 20px; left: 20px; z-index: 1000; display: none; background-color: var(--primary-color); color: var(--white-color); padding: 10px 15px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); width: 220px; }
+        #floating-progress-panel .progress-label { font-size: 0.8rem; margin-bottom: 4px; }
+        #floating-progress-panel .progress-bar-container { width: 100%; height: 8px; background-color: rgba(255,255,255,0.3); border-radius: 4px; overflow: hidden; }
+        #floating-progress-panel .progress-bar-fill { width: 0%; height: 100%; background-color: var(--secondary-color); transition: width 0.2s linear; }
         .page-nav-buttons { position: fixed; bottom: 20px; right: 20px; z-index: 1000; display: none; flex-direction: column; gap: 10px; }
         .page-nav-buttons button { width: 50px; height: 50px; border-radius: 50%; background-color: var(--primary-color); color: var(--white-color); border: none; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; }
         .page-nav-buttons button:hover { background-color: var(--secondary-color); transform: scale(1.1); }
-        
-        #floating-sound-bank {
-            position: fixed; bottom: 80px; right: 20px; z-index: 1000;
-            display: none;
-            background-color: transparent;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.25);
-            border-radius: 8px;
-        }
-        #floating-sound-bank iframe { border-radius: 8px; }
-
+        .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 10px; margin-top: 12px; }
+        .vocab-card { background: #f0f9ff; border: 2px solid #bfdbfe; border-radius: 10px; padding: 10px 12px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 8px; user-select: none; }
+        .vocab-card:hover { background: var(--secondary-color); color: white; border-color: var(--secondary-color); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(77,153,173,0.3); }
+        .vocab-card .word-text { font-weight: 600; font-size: 0.9em; }
+        .vocab-card .speaker-icon { color: var(--primary-color); font-size: 0.9rem; flex-shrink: 0; }
+        .vocab-card:hover .speaker-icon { color: white; }
+        .vocab-card.playing { background: var(--primary-color); color: white; border-color: var(--primary-color); }
+        .vocab-card.playing .speaker-icon { color: white; animation: pulse-speaker 0.6s ease infinite; }
+        .vocab-section-title { font-weight: 700; color: var(--primary-color); margin: 16px 0 6px; font-size: 1rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 4px; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .animate-fade-in-up { animation: fadeInUp 0.5s ease-out forwards; }
+        @keyframes pulse-speaker { 0%,100% { transform: scale(1); } 50% { transform: scale(1.2); } }
     </style>
 </head>
 <body class="bg-gray-50">
-    
     <div class="hero-section text-white py-16">
         <div class="hero-content text-center px-4">
             <img src="https://ucn.edu.co/wp-content/uploads/2025/03/ucn-logosimbolo.svg" alt="UCN Logo" class="w-56 mx-auto mb-6 filter brightness-0 invert" style="width: 225px;">
@@ -143,22 +88,10 @@
                     </ul>
                 </div>
                 <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-in-up">
-                    <div class="menu-tile p-6" onclick="showSection('vocab-section')">
-                        <i class="fas fa-spell-check menu-icon text-4xl mb-4"></i>
-                        <h3 class="font-bold text-lg">1. Vocabulary</h3>
-                    </div>
-                    <div class="menu-tile p-6" onclick="showSection('reading-section')">
-                        <i class="fas fa-book-open-reader menu-icon text-4xl mb-4"></i>
-                        <h3 class="font-bold text-lg">2. Reading</h3>
-                    </div>
-                    <div class="menu-tile p-6" onclick="showSection('grammar-section')">
-                        <i class="fas fa-pen-ruler menu-icon text-4xl mb-4"></i>
-                        <h3 class="font-bold text-lg">3. Grammar</h3>
-                    </div>
-                    <div class="menu-tile p-6" onclick="showSection('practical-section')">
-                        <i class="fas fa-keyboard menu-icon text-4xl mb-4"></i>
-                        <h3 class="font-bold text-lg">4. Practical Task</h3>
-                    </div>
+                    <div class="menu-tile p-6" onclick="showSection('vocab-section')"><i class="fas fa-spell-check menu-icon text-4xl mb-4"></i><h3 class="font-bold text-lg">1. Vocabulary</h3></div>
+                    <div class="menu-tile p-6" onclick="showSection('reading-section')"><i class="fas fa-book-open-reader menu-icon text-4xl mb-4"></i><h3 class="font-bold text-lg">2. Reading</h3></div>
+                    <div class="menu-tile p-6" onclick="showSection('grammar-section')"><i class="fas fa-pen-ruler menu-icon text-4xl mb-4"></i><h3 class="font-bold text-lg">3. Grammar</h3></div>
+                    <div class="menu-tile p-6" onclick="showSection('practical-section')"><i class="fas fa-keyboard menu-icon text-4xl mb-4"></i><h3 class="font-bold text-lg">4. Practical Task</h3></div>
                 </div>
             </div>
 
@@ -167,21 +100,59 @@
                 <button class="btn-primary mb-6" onclick="showMenu()"><i class="fas fa-arrow-left mr-2"></i>Back to Menu</button>
                 <h2 class="text-3xl font-bold text-gray-800 mb-6">1. Vocabulary Presentation</h2>
                 <img src="https://images.pexels.com/photos/7848733/pexels-photo-7848733.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Various signs on an office wall" class="w-full h-64 object-cover rounded-lg shadow-md mb-8">
+
+                <p class="text-gray-600 mb-4 flex items-center gap-2"><i class="fas fa-volume-up text-blue-500"></i> <em>Click any word to hear its pronunciation.</em></p>
+
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
-                        <h3 class="font-bold text-lg mb-2">Notice and Sign Words</h3>
-                        <ul class="list-disc list-inside"><li>Notice = important information for everyone</li><li>Sign = written information that you can see</li><li>Warning = tells you about danger</li><li>Instructions = steps to follow</li><li>Rules = what you must and must not do</li><li>Emergency = dangerous situation that needs quick action</li></ul>
-                        <h3 class="font-bold text-lg mt-4 mb-2">Action Words (Imperatives)</h3>
-                        <ul class="list-disc list-inside"><li>Enter = go inside</li><li>Exit = go outside/leave</li><li>Push = press with force</li><li>Pull = move toward you</li><li>Turn = move in a circle</li><li>Press = push gently</li><li>Wait = stay and do nothing</li><li>Stop = do not continue</li><li>Start = begin</li><li>Close = shut</li><li>Open = not closed</li></ul>
+                        <div class="vocab-section-title">Notice and Sign Words</div>
+                        <div class="vocab-grid">
+                            <div class="vocab-card" onclick="speakWord('Notice', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Notice</span></div>
+                            <div class="vocab-card" onclick="speakWord('Sign', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Sign</span></div>
+                            <div class="vocab-card" onclick="speakWord('Warning', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Warning</span></div>
+                            <div class="vocab-card" onclick="speakWord('Instructions', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Instructions</span></div>
+                            <div class="vocab-card" onclick="speakWord('Rules', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Rules</span></div>
+                            <div class="vocab-card" onclick="speakWord('Emergency', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Emergency</span></div>
+                        </div>
+                        <div class="vocab-section-title">Action Words (Imperatives)</div>
+                        <div class="vocab-grid">
+                            <div class="vocab-card" onclick="speakWord('Enter', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Enter</span></div>
+                            <div class="vocab-card" onclick="speakWord('Exit', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Exit</span></div>
+                            <div class="vocab-card" onclick="speakWord('Push', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Push</span></div>
+                            <div class="vocab-card" onclick="speakWord('Pull', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Pull</span></div>
+                            <div class="vocab-card" onclick="speakWord('Turn', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Turn</span></div>
+                            <div class="vocab-card" onclick="speakWord('Press', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Press</span></div>
+                            <div class="vocab-card" onclick="speakWord('Wait', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Wait</span></div>
+                            <div class="vocab-card" onclick="speakWord('Stop', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Stop</span></div>
+                            <div class="vocab-card" onclick="speakWord('Start', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Start</span></div>
+                            <div class="vocab-card" onclick="speakWord('Close', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Close</span></div>
+                            <div class="vocab-card" onclick="speakWord('Open', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Open</span></div>
+                        </div>
                     </div>
                     <div>
-                        <h3 class="font-bold text-lg mb-2">Office Equipment</h3>
-                        <ul class="list-disc list-inside"><li>Printer = machine that prints papers</li><li>Copier = machine that copies documents</li><li>Scanner = machine that copies documents to computer</li><li>Fax machine = sends documents by telephone</li><li>Coffee machine = makes coffee</li><li>Microwave = heats food</li><li>Elevator = moves people between floors</li><li>Fire extinguisher = puts out fires</li></ul>
-                        <h3 class="font-bold text-lg mt-4 mb-2">Safety Words</h3>
-                        <ul class="list-disc list-inside"><li>Danger = not safe</li><li>Caution = be careful</li><li>Emergency = serious problem</li><li>Fire = burning</li><li>Smoke = gray clouds from fire</li><li>Exit = way out</li><li>First aid = help for injured people</li><li>Security = keeping safe</li></ul>
+                        <div class="vocab-section-title">Office Equipment</div>
+                        <div class="vocab-grid">
+                            <div class="vocab-card" onclick="speakWord('Printer', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Printer</span></div>
+                            <div class="vocab-card" onclick="speakWord('Copier', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Copier</span></div>
+                            <div class="vocab-card" onclick="speakWord('Scanner', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Scanner</span></div>
+                            <div class="vocab-card" onclick="speakWord('Fax machine', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Fax machine</span></div>
+                            <div class="vocab-card" onclick="speakWord('Coffee machine', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Coffee machine</span></div>
+                            <div class="vocab-card" onclick="speakWord('Microwave', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Microwave</span></div>
+                            <div class="vocab-card" onclick="speakWord('Elevator', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Elevator</span></div>
+                            <div class="vocab-card" onclick="speakWord('Fire extinguisher', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Fire extinguisher</span></div>
+                        </div>
+                        <div class="vocab-section-title">Safety Words</div>
+                        <div class="vocab-grid">
+                            <div class="vocab-card" onclick="speakWord('Danger', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Danger</span></div>
+                            <div class="vocab-card" onclick="speakWord('Caution', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Caution</span></div>
+                            <div class="vocab-card" onclick="speakWord('Fire', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Fire</span></div>
+                            <div class="vocab-card" onclick="speakWord('Smoke', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Smoke</span></div>
+                            <div class="vocab-card" onclick="speakWord('First aid', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">First aid</span></div>
+                            <div class="vocab-card" onclick="speakWord('Security', this)"><i class="fas fa-volume-up speaker-icon"></i><span class="word-text">Security</span></div>
+                        </div>
                     </div>
                 </div>
-                <div class="mt-6"><button onclick="toggleSoundBank()" class="btn-primary"><i class="fas fa-volume-high mr-2"></i>Toggle Audio Bank</button></div>
+
                 <div class="quiz-toggle mt-6" onclick="toggleQuiz(this, 'vocab-quiz-content')"><h3 class="text-xl font-bold"><i class="fas fa-brain mr-3"></i>Vocabulary Exercises</h3><i class="fas fa-chevron-down"></i></div>
                 <div class="quiz-content" id="vocab-quiz-content"><div id="quiz-vocab" class="space-y-4"></div><div class="mt-6"><button onclick="checkQuiz('vocab')" class="btn-primary">Check Answers</button><button onclick="generateQuiz('vocab')" class="btn-secondary ml-2">Try Again</button></div></div>
             </section>
@@ -204,7 +175,7 @@
                         <div class="notice-header bg-red-100 text-red-800 font-bold"><i class="fas fa-fire-extinguisher mr-2"></i>Notice 3: Fire Emergency Procedures</div>
                         <div class="notice-body"><ul><li>• Do not use elevators.</li><li>• Exit the building using the stairs.</li><li>• Meet at the assembly point in the parking lot.</li><li>• Do not return until security says it is safe.</li><li>• Call 911 from a safe location.</li></ul></div>
                     </div>
-                     <div class="notice-card">
+                    <div class="notice-card">
                         <div class="notice-header bg-gray-100 text-gray-800 font-bold"><i class="fas fa-clipboard-list mr-2"></i>Notice 4: General Office Rules</div>
                         <div class="notice-body"><ul><li>• Please turn off all computers before leaving.</li><li>• Do not eat at your desk.</li><li>• Keep noise levels low during work hours.</li><li>• Park only in designated employee spaces.</li><li>• Report security problems to reception.</li></ul></div>
                     </div>
@@ -215,7 +186,7 @@
 
             <!-- Grammar Section -->
             <section id="grammar-section" class="content-section section-card p-6 md:p-8 hidden">
-                 <button class="btn-primary mb-6" onclick="showMenu()"><i class="fas fa-arrow-left mr-2"></i>Back to Menu</button>
+                <button class="btn-primary mb-6" onclick="showMenu()"><i class="fas fa-arrow-left mr-2"></i>Back to Menu</button>
                 <h2 class="text-3xl font-bold text-gray-800 mb-6">3. Grammar Presentation</h2>
                 <img src="https://images.pexels.com/photos/7102/notes-macbook-study-conference.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="A person taking notes" class="w-full h-64 object-cover rounded-lg shadow-md mb-8">
                 <h3 class="text-2xl font-bold text-gray-800 mb-4">Grammar for Instructions and Notices</h3>
@@ -232,11 +203,11 @@
             <section id="practical-section" class="content-section section-card p-6 md:p-8 hidden">
                 <button class="btn-primary mb-6" onclick="showMenu()"><i class="fas fa-arrow-left mr-2"></i>Back to Menu</button>
                 <h2 class="text-3xl font-bold text-gray-800 mb-6">4. Practical Task: Writing</h2>
-                <img src="https://images.pexels.com/photos/4050315/pexels-photo-4050315.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Hands typing on a keyboard, writing instructions" class="w-full h-64 object-cover rounded-lg shadow-md mb-8">
+                <img src="https://images.pexels.com/photos/4050315/pexels-photo-4050315.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Hands typing on a keyboard" class="w-full h-64 object-cover rounded-lg shadow-md mb-8">
                 <h3 class="text-xl font-bold text-gray-800 mb-4">Writing Task: Create 3-Step Instructions for an Office Tool</h3>
                 <div class="grid md:grid-cols-2 gap-8">
                     <div class="bg-gray-50 p-6 rounded-lg border">
-                        <h4 class="font-bold mb-2">Step 1 & 2: Choose & Plan</h4>
+                        <h4 class="font-bold mb-2">Step 1 &amp; 2: Choose &amp; Plan</h4>
                         <p class="text-sm text-gray-600 mb-4">Select a tool and plan the key steps and info.</p>
                         <div class="space-y-4">
                             <div><label class="block font-semibold text-gray-700">Office Tool:</label><select class="input-modern w-full"><option>Photocopier</option><option>Scanner</option><option>Microwave</option><option>Shredder</option></select></div>
@@ -257,108 +228,161 @@ Step 3: (Final action)"></textarea>
         </main>
     </div>
 
-    <!-- FLOATING UI ELEMENTS -->
     <div id="floating-progress-panel"><div class="progress-label" id="progress-label">Section Progress</div><div class="progress-bar-container"><div class="progress-bar-fill" id="progress-bar"></div></div></div>
-    <div id="floating-sound-bank"><iframe src="https://archive.org/embed/be-1-u-5-vocab" width="320" height="60" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe></div>
     <div class="page-nav-buttons" id="page-nav"><button onclick="goToTop()" title="Go to Top"><i class="fas fa-arrow-up"></i></button><button onclick="goToBottom()" title="Go to Bottom"><i class="fas fa-arrow-down"></i></button></div>
 
     <script>
         const quizPool = {
-            vocab: [ { type: 'match', q: 'Match: Notice', a: 'Important information for everyone', o: ['Machine that prints papers', 'Important information for everyone', 'Steps to follow']}, { type: 'match', q: 'Match: Emergency', a: 'Dangerous situation', o: ['Go inside', 'Steps to follow', 'Dangerous situation']}, { type: 'match', q: 'Match: Printer', a: 'Machine that prints papers', o: ['Machine that prints papers', 'Puts out fires', 'Sends documents']}, { type: 'fill', q: '_______ the button to start the machine.', a: 'Press'}, { type: 'fill', q: '_______ the door to open it.', a: 'Pull'}, { type: 'fill', q: '_______ the handle to the right.', a: 'Turn'}, { type: 'choice', q: 'In case of (fire/coffee), use the stairs.', a: 'fire', o: ['fire', 'coffee']}, { type: 'choice', q: 'The (danger/paper) sign means "be very careful."', a: 'danger', o: ['danger', 'paper']}, { type: 'choice', q: 'The (exit/enter) sign shows the way out.', a: 'exit', o: ['exit', 'enter']}, { type: 'fill', q: 'Enter this room. → _______ enter this room.', a: 'Do not'}, { type: 'fill', q: 'Touch the equipment. → _______ touch the equipment.', a: 'Do not'} ],
-            reading: [ { type: 'tf', q: 'You should put documents face-up on the printer glass.', a: 'F'}, { type: 'tf', q: 'The coffee machine takes 30 seconds to prepare drinks.', a: 'T'}, { type: 'tf', q: 'You can use elevators during a fire emergency.', a: 'F'}, { type: 'tf', q: 'You should turn off computers before leaving.', a: 'T'}, { type: 'tf', q: 'You can eat anywhere in the office.', a: 'F'}, { type: 'tf', q: 'Call extension 205 for printer problems.', a: 'T'}, { type: 'choice', q: 'What should you do if the printer has problems?', a: 'Call extension 205', o:['Clean it', 'Call extension 205', 'Turn it off']}, { type: 'choice', q: 'Where is the assembly point during fire emergencies?', a: 'In the parking lot', o:['In the building', 'At reception', 'In the parking lot']}, { type: 'choice', q: 'What is the first step to use the coffee machine?', a: 'Put your cup under the spout', o:['Press the button', 'Choose your drink', 'Put your cup under the spout']}, { type: 'match', q: 'Instruction: Place document face-down', a: 'b', o: ['a) Coffee machine', 'b) Printer', 'c) Emergency', 'd) Computer']}, { type: 'match', q: 'Instruction: Use stairs, not elevator', a: 'c', o: ['a) Coffee machine', 'b) Printer', 'c) Emergency', 'd) Computer']} ],
-            grammar: [ { type: 'fill', q: 'You should press the button. → _______ the button.', a: 'Press'}, { type: 'fill', q: 'You must not smoke here. → _______ smoke here.', a: 'Do not'}, { type: 'fill', q: 'You need to wait. → _______ here.', a: 'Wait'}, { type: 'fill', q: 'Turn off your phone. → _______ turn off your phone.', a: 'Please'}, { type: 'fill', q: '_______ press the red button.', a: 'Don\'t'}, { type: 'fill', q: '_______ use the elevator during emergencies.', a: 'Don\'t'}, { type: 'fill', q: '_______ follow the safety instructions.', a: 'Do'}, { type: 'choice', q: 'Complete: _____ case of fire, use the stairs.', a: 'In', o:['In', 'If', 'When', 'Before']}, { type: 'choice', q: 'Complete: _____ the light is red, do not enter.', a: 'When', o:['In', 'If', 'When', 'Before']}, { type: 'choice', q: 'Complete: _____ you need help, call reception.', a: 'If', o:['In', 'If', 'When', 'Before']} ]
+            vocab: [
+                { type: 'match', q: 'Match: Notice', a: 'Important information for everyone', o: ['Machine that prints papers', 'Important information for everyone', 'Steps to follow']},
+                { type: 'match', q: 'Match: Emergency', a: 'Dangerous situation', o: ['Go inside', 'Steps to follow', 'Dangerous situation']},
+                { type: 'match', q: 'Match: Printer', a: 'Machine that prints papers', o: ['Machine that prints papers', 'Puts out fires', 'Sends documents']},
+                { type: 'fill', q: '_______ the button to start the machine.', a: 'Press'},
+                { type: 'fill', q: '_______ the door to open it.', a: 'Pull'},
+                { type: 'fill', q: '_______ the handle to the right.', a: 'Turn'},
+                { type: 'choice', q: 'In case of (fire/coffee), use the stairs.', a: 'fire', o: ['fire', 'coffee']},
+                { type: 'choice', q: 'The (danger/paper) sign means "be very careful."', a: 'danger', o: ['danger', 'paper']},
+                { type: 'choice', q: 'The (exit/enter) sign shows the way out.', a: 'exit', o: ['exit', 'enter']},
+                { type: 'fill', q: 'Enter this room. → _______ enter this room.', a: 'Do not'},
+                { type: 'fill', q: 'Touch the equipment. → _______ touch the equipment.', a: 'Do not'}
+            ],
+            reading: [
+                { type: 'tf', q: 'You should put documents face-up on the printer glass.', a: 'F'},
+                { type: 'tf', q: 'The coffee machine takes 30 seconds to prepare drinks.', a: 'T'},
+                { type: 'tf', q: 'You can use elevators during a fire emergency.', a: 'F'},
+                { type: 'tf', q: 'You should turn off computers before leaving.', a: 'T'},
+                { type: 'tf', q: 'You can eat anywhere in the office.', a: 'F'},
+                { type: 'tf', q: 'Call extension 205 for printer problems.', a: 'T'},
+                { type: 'choice', q: 'What should you do if the printer has problems?', a: 'Call extension 205', o:['Clean it', 'Call extension 205', 'Turn it off']},
+                { type: 'choice', q: 'Where is the assembly point during fire emergencies?', a: 'In the parking lot', o:['In the building', 'At reception', 'In the parking lot']},
+                { type: 'choice', q: 'What is the first step to use the coffee machine?', a: 'Put your cup under the spout', o:['Press the button', 'Choose your drink', 'Put your cup under the spout']},
+                { type: 'choice', q: 'Which notice has 4 numbered steps?', a: 'Printer Instructions', o: ['Printer Instructions', 'Coffee Machine', 'Fire Emergency']}
+            ],
+            grammar: [
+                { type: 'fill', q: 'You should press the button. → _______ the button.', a: 'Press'},
+                { type: 'fill', q: 'You must not smoke here. → _______ smoke here.', a: 'Do not'},
+                { type: 'fill', q: 'You need to wait. → _______ here.', a: 'Wait'},
+                { type: 'fill', q: 'Turn off your phone. → _______ turn off your phone.', a: 'Please'},
+                { type: 'fill', q: '_______ press the red button.', a: "Don't"},
+                { type: 'fill', q: '_______ use the elevator during emergencies.', a: "Don't"},
+                { type: 'fill', q: '_______ follow the safety instructions.', a: 'Do'},
+                { type: 'choice', q: 'Complete: _____ case of fire, use the stairs.', a: 'In', o:['In', 'If', 'When', 'Before']},
+                { type: 'choice', q: 'Complete: _____ the light is red, do not enter.', a: 'When', o:['In', 'If', 'When', 'Before']},
+                { type: 'choice', q: 'Complete: _____ you need help, call reception.', a: 'If', o:['In', 'If', 'When', 'Before']}
+            ]
         };
+
         const mainMenuContent = document.getElementById('main-menu-content');
         const allSections = document.querySelectorAll('.content-section');
         const pageNav = document.getElementById('page-nav');
         const progressPanel = document.getElementById('floating-progress-panel');
-        const soundBankPanel = document.getElementById('floating-sound-bank');
         let currentSection = null;
 
         document.addEventListener('DOMContentLoaded', () => { generateQuiz('vocab'); generateQuiz('reading'); generateQuiz('grammar'); });
-        
-        function resetIframes(sectionEl) {
-            if (sectionEl) {
-                sectionEl.querySelectorAll('iframe').forEach(iframe => { const src = iframe.src; iframe.src = null; iframe.src = src; });
-            }
-            const soundBankIframe = soundBankPanel.querySelector('iframe');
-            if (soundBankIframe) { const src = soundBankIframe.src; soundBankIframe.src = null; soundBankIframe.src = src; }
-        }
-        
-        function showMenu() {
-            if (currentSection) resetIframes(currentSection);
-            currentSection = null;
-            mainMenuContent.style.display = 'block';
-            allSections.forEach(s => { s.style.display = 'none'; });
-            window.removeEventListener('scroll', updateProgressBar);
-            progressPanel.style.display = 'none';
-            soundBankPanel.style.display = 'none';
-        }
 
+        function showMenu() {
+            currentSection = null; mainMenuContent.style.display = 'block';
+            allSections.forEach(s => { s.style.display = 'none'; });
+            progressPanel.style.display = 'none'; pageNav.style.display = 'none';
+        }
         function showSection(id) {
-            if (currentSection) resetIframes(currentSection);
             mainMenuContent.style.display = 'none';
             allSections.forEach(s => { s.style.display = 'none'; });
             currentSection = document.getElementById(id);
-            if(currentSection) {
-                currentSection.style.display = 'block';
-                window.scrollTo(0,0);
-                window.addEventListener('scroll', updateProgressBar);
-                progressPanel.style.display = 'block';
-                soundBankPanel.style.display = 'none';
-                updateProgressBar();
-            }
+            if (currentSection) { currentSection.style.display = 'block'; window.scrollTo(0,0); updateProgressBar(); }
         }
-
-        function toggleSoundBank() { soundBankPanel.style.display = soundBankPanel.style.display === 'block' ? 'none' : 'block'; }
         function toggleQuiz(button, contentId) { button.classList.toggle('active'); document.getElementById(contentId).classList.toggle('active'); setTimeout(updateProgressBar, 500); }
         function goToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
         function goToBottom() { window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }); }
-        
         function updateProgressBar() {
             pageNav.style.display = (window.scrollY > 200) ? "flex" : "none";
             if (!currentSection) { progressPanel.style.display = 'none'; return; }
             progressPanel.style.display = 'block';
-            const progressBar = document.getElementById('progress-bar');
-            const progressLabel = document.getElementById('progress-label');
-            const sectionTop = currentSection.offsetTop;
-            const sectionHeight = currentSection.scrollHeight;
-            const viewportHeight = window.innerHeight;
-            const scrollPos = window.scrollY;
-            let percentage = 0;
-            if (scrollPos >= sectionTop - viewportHeight) {
-                const distance = scrollPos + viewportHeight - sectionTop;
-                let total = sectionHeight;
-                if (total < viewportHeight) { total = viewportHeight; }
-                percentage = (distance / total) * 100;
-            }
-            percentage = Math.max(0, Math.min(percentage, 100));
-            progressBar.style.width = percentage + '%';
-            progressLabel.textContent = `Section ${Math.round(percentage)}% Explored`;
+            const scrollable = currentSection.scrollHeight - window.innerHeight;
+            let pct = scrollable <= 0 ? 100 : ((window.scrollY - currentSection.offsetTop) / scrollable) * 100;
+            pct = Math.max(0, Math.min(pct, 100));
+            document.getElementById('progress-bar').style.width = pct + '%';
+            document.getElementById('progress-label').textContent = `Section ${Math.round(pct)}% Explored`;
         }
         window.addEventListener('scroll', updateProgressBar);
 
-        function getShuffledQuestions(type, num) { return quizPool[type].sort(() => 0.5 - Math.random()).slice(0, num); }
-        
+        // Preferred voice priority list (neural/natural voices first)
+        const VOICE_PRIORITY = [
+            'Google US English', 'Google UK English Female', 'Google UK English Male',
+            'Microsoft Aria Online (Natural)', 'Microsoft Jenny Online (Natural)',
+            'Microsoft Guy Online (Natural)', 'Microsoft Libby Online (Natural)',
+            'Samantha', 'Karen', 'Daniel'
+        ];
+        let _selectedVoice = null;
+
+        function getBestVoice() {
+            if (_selectedVoice) return _selectedVoice;
+            const voices = window.speechSynthesis.getVoices();
+            for (const name of VOICE_PRIORITY) {
+                const v = voices.find(v => v.name === name);
+                if (v) { _selectedVoice = v; return v; }
+            }
+            _selectedVoice = voices.find(v => v.lang === 'en-US') || voices[0] || null;
+            return _selectedVoice;
+        }
+
+        if (window.speechSynthesis && window.speechSynthesis.onvoiceschanged !== undefined) {
+            window.speechSynthesis.onvoiceschanged = () => { _selectedVoice = null; getBestVoice(); };
+        }
+
+        function speakWord(word, cardEl) {
+            if (!window.speechSynthesis) return;
+            window.speechSynthesis.cancel();
+            const utter = new SpeechSynthesisUtterance(word);
+            utter.lang = 'en-US'; utter.rate = 0.85; utter.pitch = 1.0;
+            const voice = getBestVoice();
+            if (voice) utter.voice = voice;
+            document.querySelectorAll('.vocab-card').forEach(c => c.classList.remove('playing'));
+            if (cardEl) {
+                cardEl.classList.add('playing');
+                utter.onend = () => cardEl.classList.remove('playing');
+                utter.onerror = () => cardEl.classList.remove('playing');
+            }
+            window.speechSynthesis.speak(utter);
+        }
+
+        function getShuffledQuestions(type, num) { return [...quizPool[type]].sort(() => 0.5 - Math.random()).slice(0, num); }
+
         function generateQuiz(type) {
             const container = document.getElementById(`quiz-${type}`); if (!container) return;
             const questions = getShuffledQuestions(type, 5); let html = '';
             questions.forEach((q, i) => {
-                let qHtml = `<div class="quiz-question bg-gray-50 p-4 rounded-lg border" data-a="${q.a}"><p class="font-semibold text-gray-800 mb-3"><span class="inline-flex items-center justify-center w-6 h-6 bg-blue-100 text-blue-800 rounded-full text-sm font-bold mr-3">${i + 1}</span>`;
-                if (q.type === 'fill') qHtml += `${q.q.replace(/_+/g, '<input type="text" class="input-modern inline-block w-40 mx-1">')}</p>`;
-                else if (q.type === 'order') qHtml += `Put the words in order: <em class="text-blue-600">${q.q}</em></p><input type="text" class="input-modern w-full mt-2" placeholder="Write the correct sentence...">`;
-                else { qHtml += `${q.q}</p><div class="options mt-3 space-y-2">`; const opts = q.type === 'tf' ? ['T', 'F'] : q.o; opts.forEach(o => { const lbl = q.type === 'tf' ? (o === 'T' ? 'True' : 'False') : o; qHtml += `<label class="flex items-center p-3 bg-white rounded-lg border hover:bg-gray-50 cursor-pointer"><input type="radio" name="q${type}${i}" value="${o}" class="mr-3 text-blue-600 focus:ring-blue-500"><span>${lbl}</span></label>`; }); qHtml += `</div>`; }
-                qHtml += '<div class="feedback mt-3"></div></div>'; html += qHtml;
+                let qHtml = `<div class="quiz-question bg-gray-50 p-4 rounded-lg border" data-type="${q.type}" data-a="${encodeURIComponent(q.a)}"><p class="font-semibold text-gray-800 mb-3"><span class="inline-flex items-center justify-center w-6 h-6 bg-blue-100 text-blue-800 rounded-full text-sm font-bold mr-3">${i + 1}</span>`;
+                if (q.type === 'fill') {
+                    qHtml += `${q.q.replace(/_+/g, '<input type="text" class="input-modern inline-block w-32 mx-1 quiz-fill-input">')}</p>`;
+                } else if (q.type === 'order') {
+                    qHtml += `Put the words in order: <em class="text-blue-600">${q.q}</em></p><input type="text" class="input-modern w-full mt-2 quiz-order-input" placeholder="Write the correct sentence...">`;
+                } else {
+                    qHtml += `${q.q}</p><div class="options mt-3 space-y-2">`;
+                    const opts = q.type === 'tf' ? ['T', 'F'] : q.o;
+                    opts.forEach(o => {
+                        const lbl = q.type === 'tf' ? (o === 'T' ? 'True' : 'False') : o;
+                        qHtml += `<label class="flex items-center p-3 bg-white rounded-lg border hover:bg-gray-50 cursor-pointer"><input type="radio" name="q${type}${i}" value="${o}" class="mr-3 text-blue-600 focus:ring-blue-500"><span>${lbl}</span></label>`;
+                    });
+                    qHtml += `</div>`;
+                }
+                qHtml += '<div class="feedback mt-3"></div></div>';
+                html += qHtml;
             });
             container.innerHTML = html;
         }
+
         function checkQuiz(type) {
             document.querySelectorAll(`#quiz-${type} .quiz-question`).forEach(q => {
-                const ans = q.dataset.a; const fb = q.querySelector('.feedback'); let userAns;
-                const input = q.querySelector('.quiz-input'); const selected = q.querySelector('input:checked');
-                if (input) userAns = input.value.trim().replace(/\.$/, ""); else if (selected) userAns = selected.value;
-                if (userAns === undefined || userAns === "") { fb.innerHTML = `<span class="feedback incorrect">⚠️ Please provide an answer.</span>`; return; }
-                if (userAns.toLowerCase() === ans.toLowerCase().replace(/\.$/, "")) { fb.innerHTML = `<span class="feedback correct">✅️ Correct!</span>`; } 
+                const ans = decodeURIComponent(q.dataset.a), qType = q.dataset.type;
+                const fb = q.querySelector('.feedback');
+                let userAns;
+                if (qType === 'fill') { const inp = q.querySelector('.quiz-fill-input'); userAns = inp ? inp.value.trim() : ''; }
+                else if (qType === 'order') { const inp = q.querySelector('.quiz-order-input'); userAns = inp ? inp.value.trim() : ''; }
+                else { const sel = q.querySelector('input:checked'); userAns = sel ? sel.value : ''; }
+                if (!userAns) { fb.innerHTML = `<span class="feedback incorrect">⚠️ Please provide an answer.</span>`; return; }
+                const norm = s => s.toLowerCase().replace(/\.$/, '').trim();
+                if (norm(userAns) === norm(ans)) { fb.innerHTML = `<span class="feedback correct">✅ Correct!</span>`; }
                 else { fb.innerHTML = `<span class="feedback incorrect">❌ Incorrect. The correct answer is: <strong>${ans}</strong></span>`; }
             });
         }
